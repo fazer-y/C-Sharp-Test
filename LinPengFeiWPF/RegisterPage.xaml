@@ -1,0 +1,133 @@
+﻿<Page
+    x:Class="LinPengFeiWPF.RegisterPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LinPengFeiWPF"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="RegisterPage"
+    d:DesignHeight="450"
+    d:DesignWidth="550"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Width" Value="150" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="Margin" Value="5,5,5,5" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="Margin" Value="5,5,5,5" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Width" Value="100" />
+            </Style>
+            <Style TargetType="CheckBox">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="Margin" Value="5,15,15,0" />
+                <EventSetter Event="Click" Handler="CheckBox_Click" />
+            </Style>
+        </StackPanel.Resources>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Margin="5,15,5,15">
+                <GroupBox FontSize="15" Header="报名信息">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel
+                            Grid.Column="0"
+                            Margin="5,15,5,15"
+                            Orientation="Vertical">
+                            <WrapPanel>
+                                <Label Content="学号：" />
+                                <TextBox x:Name="textBox_stuID" Text="202000810047" />
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label Content="姓名：" />
+                                <TextBox x:Name="textBox_stuName" Text="林鹏飞" />
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label Content="性别：" />
+                                <WrapPanel
+                                    Name="wp_gender"
+                                    VerticalAlignment="Center"
+                                    RadioButton.Checked="wp_gender_Checked">
+                                    <RadioButton Content="男" IsChecked="True" />
+                                    <RadioButton Content="女" />
+                                </WrapPanel>
+                            </WrapPanel>
+                            <WrapPanel>
+                                <Label Content="学院：" />
+                                <ComboBox
+                                    x:Name="comboBox__faculty"
+                                    Width="150"
+                                    Height="30"
+                                    Margin="5,0,0,0">
+                                    <ComboBoxItem Content="机电学院" IsSelected="True" />
+                                    <ComboBoxItem Content="艺术学院" />
+                                    <ComboBoxItem Content="经管学院" />
+                                </ComboBox>
+                            </WrapPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Vertical">
+                            <GroupBox
+                                Height="130"
+                                Padding="10,10"
+                                Header="请选择运动项目">
+                                <WrapPanel Name="wp_project">
+                                    <CheckBox Content="100米" />
+                                    <CheckBox Content="200米" />
+                                    <CheckBox Content="1500米" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox Content="跳高" />
+                                        <CheckBox Margin="16,15,15,10" Content="跳远" />
+                                        <CheckBox Margin="16,15,15,10" Content="铅球" />
+                                    </StackPanel>
+                                </WrapPanel>
+                            </GroupBox>
+                            <Button
+                                x:Name="btn_add"
+                                Height="30"
+                                Margin="95,15,0,10"
+                                Click="btn_add_Click"
+                                Content="添加" />
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+            <WrapPanel
+                Grid.Row="1"
+                Margin="5,15,5,15"
+                HorizontalAlignment="Center">
+                <Button
+                    x:Name="btn_save"
+                    Margin="0,0,60,0"
+                    Click="btn_save_Click"
+                    Content="保存" />
+                <TextBox x:Name="textBox_searchFaculty" />
+                <Button
+                    x:Name="btn_search"
+                    Margin="10,0,0,0"
+                    Click="btn_search_Click"
+                    Content="查询" />
+            </WrapPanel>
+            <WrapPanel Grid.Row="2" Margin="5,15,5,15">
+                <Label Margin="5,5,0,5" Content="查询结果：" />
+                <TextBox
+                    x:Name="textBox_searchResult"
+                    Width="440"
+                    Height="110" />
+            </WrapPanel>
+        </Grid>
+    </StackPanel>
+</Page>
